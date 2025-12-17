@@ -1,6 +1,6 @@
 # DramaBox
 
-A modern Netflix-inspired streaming web application built with Next.js 15, featuring drama series from the DramaBox API. This project showcases a premium user experience with smooth animations, interactive previews, and a responsive design.
+A modern Netflix-inspired streaming web application built with Next.js 16, featuring drama series from the DramaBox API. This project showcases a premium user experience with smooth animations, interactive previews, and a responsive design.
 
 ## Features
 
@@ -16,7 +16,7 @@ A modern Netflix-inspired streaming web application built with Next.js 15, featu
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
