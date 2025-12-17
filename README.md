@@ -1,36 +1,171 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DramaBox
+
+A modern Netflix-inspired streaming web application built with Next.js 15, featuring drama series from the DramaBox API. This project showcases a premium user experience with smooth animations, interactive previews, and a responsive design.
+
+## Features
+
+- **Netflix-Style Interface**: Clean, modern UI inspired by Netflix's design language
+- **Auto-Rotating Hero Banner**: Featured dramas carousel with smooth transitions
+- **Interactive Card Previews**: 5-second hover preview with detailed information dialog
+- **Video Player**: Custom video player with episode selection
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Dark Mode**: Full dark theme implementation
+- **Smooth Animations**: Framer Motion powered transitions and interactions
+- **Loading States**: Skeleton loaders for better UX during data fetching
+- **Data Filtering**: Automatic filtering of invalid or incomplete data
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **API**: DramaBox API (https://dramabox.sansekai.my.id)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/codewithwan/dramabox.git
+cd dramabox
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+dramaflix/
+├── app/
+│   ├── drama/[id]/     # Drama detail and video player page
+│   ├── search/         # Search results page
+│   ├── layout.tsx      # Root layout with theme provider
+│   ├── page.tsx        # Home page with hero and sections
+│   └── globals.css     # Global styles and theme variables
+├── components/
+│   ├── ui/             # shadcn/ui components
+│   ├── drama-card.tsx  # Drama card with hover preview
+│   ├── drama-section.tsx # Section layout (grid/horizontal)
+│   ├── drama-player-ui.tsx # Video player interface
+│   ├── header.tsx      # Navigation header
+│   ├── hero-carousel.tsx # Auto-rotating hero banner
+│   ├── hero-drama.tsx  # Individual hero slide
+│   └── skeletons.tsx   # Loading skeleton components
+├── lib/
+│   ├── api.ts          # API client functions
+│   ├── types.ts        # TypeScript interfaces
+│   └── utils.ts        # Utility functions
+└── public/             # Static assets
+```
 
-## Learn More
+## API Integration
 
-To learn more about Next.js, take a look at the following resources:
+This project uses the DramaBox API to fetch drama content. Available endpoints:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/api/dramabox/foryou` - Recommended dramas
+- `/api/dramabox/latest` - Latest releases
+- `/api/dramabox/trending` - Trending dramas
+- `/api/dramabox/search?q={query}` - Search dramas
+- `/api/dramabox/allepisode?bookId={id}` - Get all episodes for a drama
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Key Features Implementation
 
-## Deploy on Vercel
+### Interactive Card Preview
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Hover over a drama card for 5 seconds to trigger a detailed preview dialog
+- Preview includes drama info, metadata, description, and action buttons
+- Dialog remains open until manually closed by user
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Hero Carousel
+
+- Auto-rotates through featured dramas every 8 seconds
+- Smooth fade transitions between slides
+- Filters out invalid or incomplete data automatically
+
+### Video Player
+
+- Episode grid with thumbnails
+- Episode numbers and titles on hover
+- Active episode indicator
+- Premium episode badges
+- Responsive grid layout (3-8 columns based on screen size)
+
+### Performance Optimizations
+
+- Image lazy loading
+- Skeleton loading states
+- Data validation and filtering
+- Efficient re-renders with React hooks
+- Optimized animations with Framer Motion
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Coding Conventions
+
+This project follows conventional commits:
+
+- `feat:` - New features
+- `fix:` - Bug fixes
+- `chore:` - Maintenance tasks
+- `docs:` - Documentation updates
+- `style:` - Code style changes
+- `refactor:` - Code refactoring
+- `perf:` - Performance improvements
+- `test:` - Testing updates
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feat/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feat/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Acknowledgments
+
+- DramaBox API for providing the drama content
+- shadcn/ui for the beautiful component library
+- Next.js team for the amazing framework
+- Vercel for hosting and deployment platform
+
+## Contact
+
+For questions or feedback, please open an issue on GitHub.
+
+---
+
+Built with Next.js and TypeScript
