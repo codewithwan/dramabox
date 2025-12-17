@@ -56,27 +56,28 @@ npm run dev
 ## Project Structure
 
 ```
-dramaflix/
+dramabox/
 ├── app/
-│   ├── drama/[id]/     # Drama detail and video player page
-│   ├── search/         # Search results page
-│   ├── layout.tsx      # Root layout with theme provider
-│   ├── page.tsx        # Home page with hero and sections
-│   └── globals.css     # Global styles and theme variables
+│   ├── browse/          # Browse pages (trending, latest, foryou)
+│   ├── drama/[id]/      # Drama detail and video player page
+│   ├── search/          # Search results page
+│   ├── layout.tsx       # Root layout with theme provider
+│   ├── page.tsx         # Home page with hero and sections
+│   └── globals.css      # Global styles and theme variables
 ├── components/
-│   ├── ui/             # shadcn/ui components
-│   ├── drama-card.tsx  # Drama card with hover preview
+│   ├── ui/              # shadcn/ui components
+│   ├── drama-card.tsx   # Drama card with hover preview
 │   ├── drama-section.tsx # Section layout (grid/horizontal)
 │   ├── drama-player-ui.tsx # Video player interface
-│   ├── header.tsx      # Navigation header
+│   ├── header.tsx       # Navigation header
 │   ├── hero-carousel.tsx # Auto-rotating hero banner
-│   ├── hero-drama.tsx  # Individual hero slide
-│   └── skeletons.tsx   # Loading skeleton components
+│   ├── hero-drama.tsx   # Individual hero slide
+│   └── skeletons.tsx    # Loading skeleton components
 ├── lib/
-│   ├── api.ts          # API client functions
-│   ├── types.ts        # TypeScript interfaces
-│   └── utils.ts        # Utility functions
-└── public/             # Static assets
+│   ├── api.ts           # API client functions
+│   ├── types.ts         # TypeScript interfaces
+│   └── utils.ts         # Utility functions
+└── public/              # Static assets
 ```
 
 ## API Integration
