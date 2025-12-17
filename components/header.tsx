@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 export function Header() {
     const router = useRouter();
+    const pathname = usePathname();
     const [query, setQuery] = useState('');
 
     const handleSearch = (e: React.FormEvent) => {
@@ -16,6 +17,8 @@ export function Header() {
             router.push(`/search?q=${encodeURIComponent(query)}`);
         }
     };
+
+    const isActive = (path: string) => pathname === path;
 
     return (
         <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/40">
@@ -27,10 +30,30 @@ export function Header() {
                 </Link>
 
                 <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-                    <Link href="/" className="text-foreground hover:text-foreground/80 transition-colors">Home</Link>
-                    <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">TV Shows</Link>
-                    <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">Movies</Link>
-                    <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">New & Popular</Link>
+                    <Link
+                        href="/"
+                        className={isActive('/') ? 'text-foreground font-semibold' : 'text-muted-foreground hover:text-foreground transition-colors'}
+                    >
+                        Home
+                    </Link>
+                    <Link
+                        href="/browse/trending"
+                        className={isActive('/browse/trending') ? 'text-foreground font-semibold' : 'text-muted-foreground hover:text-foreground transition-colors'}
+                    >
+                        Trending
+                    </Link>
+                    <Link
+                        href="/browse/latest"
+                        className={isActive('/browse/latest') ? 'text-foreground font-semibold' : 'text-muted-foreground hover:text-foreground transition-colors'}
+                    >
+                        Latest
+                    </Link>
+                    <Link
+                        href="/browse/foryou"
+                        className={isActive('/browse/foryou') ? 'text-foreground font-semibold' : 'text-muted-foreground hover:text-foreground transition-colors'}
+                    >
+                        For You
+                    </Link>
                 </nav>
 
                 <div className="flex flex-1 items-center justify-end">
